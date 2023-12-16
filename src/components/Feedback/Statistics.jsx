@@ -12,7 +12,7 @@ export const Statistics = ({ countGood, countNeutral, countBad, countTotalFeedba
         </ul>
         <div>
             <ul>
-                <li>total:<span>{countTotalFeedback()}</span></li>
+                <li>total: <span>{countTotalFeedback()}</span></li>
                 <li >positive feedback: <span
                     style={{ color: `${Color(countPositiveFeedbackPercentage())}` }}
                 >%{countPositiveFeedbackPercentage()}</span></li>

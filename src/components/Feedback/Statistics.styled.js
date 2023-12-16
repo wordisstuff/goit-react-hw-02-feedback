@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import { Color } from "components/color/colorStatistic";
 
 export const Container = styled.div`
 font-family: 'Rubik Bubbles', cursive;
@@ -27,6 +26,7 @@ ul{
 }
 li{
     list-style: none;
+    text-transform: uppercase;
 }
 span{
     color: green;
@@ -37,12 +37,5 @@ div>ul{
     align-items: center;
     
 }
-/* div>ul>li{
-    &:last-child{
-        color: {{Color()}};
-    }
-} */
-
-
 
 `;

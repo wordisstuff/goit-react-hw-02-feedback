@@ -11,5 +11,5 @@ export const Feadback = ({ showeStatistics, countGood, countNeutral, countBad, r
             <button onClick={countNeutral} >neutral</button>
             <button onClick={countBad}>bad</button>
         </div>
-        !!! </Container>
+    </Container>
 };
