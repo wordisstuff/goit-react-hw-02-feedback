@@ -3,7 +3,6 @@ import { Color } from "components/color/colorStatistic";
 
 export const Statistics = ({ countGood, countNeutral, countBad, countTotalFeedback, countPositiveFeedbackPercentage }) => {
     return <Container>
-        <h2></h2>
         <ul><span></span>
             <li>good: <span>{countGood}</span></li>
             <li>neutral: <span>{countNeutral}</span></li>
