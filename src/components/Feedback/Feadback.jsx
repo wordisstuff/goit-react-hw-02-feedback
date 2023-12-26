@@ -2,14 +2,12 @@
 import { Container } from "./Feadback.styled"
 
 
-export const Feadback = ({ showeStatistics, countGood, countNeutral, countBad, reset }) => {
-
+export const Feadback = ({ options, onLeaveFeedback, reset }) => {
     return <Container>
         <h1 onClick={reset}>please leave feedback</h1>
-        <div onClick={showeStatistics}>
-            <button onClick={countGood}>good</button>
-            <button onClick={countNeutral} >neutral</button>
-            <button onClick={countBad}>bad</button>
+        <div>
+            {Object.keys(options).map(key => <button key={key} onClick={() => onLeaveFeedback(key)}>{key}</button>)}
         </div>
+
     </Container>
 };

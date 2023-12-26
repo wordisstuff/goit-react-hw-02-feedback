@@ -1,7 +1,6 @@
 import { Container } from "./Statistics.styled"
 import { Color } from "components/color/colorStatistic";
-
-
+ 
 export const Statistics = ({ countGood, countNeutral, countBad, countTotalFeedback, countPositiveFeedbackPercentage }) => {
     return <Container>
         <h2>statistics</h2>

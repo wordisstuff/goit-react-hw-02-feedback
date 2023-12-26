@@ -2,37 +2,22 @@
 import { Component } from "react"
 import { Feadback } from "./Feedback/Feadback"
 import { Statistics } from "./Feedback/Statistics"
+import Notification from "./Notification/Notification"
 
 
 export class App extends Component {
   state = {
-    isShowStatistics: false,
     good: 0,
     neutral: 0,
     bad: 0
-
   }
   reset = () => {
     return window.location.reload()
   }
-  showeStatistics = () => {
-    this.setState({ isShowStatistics: true })
-  }
-  countGood = () => {
-    return this.setState((prev) => {
-      return {
-        good: prev.good + 1
-      }
-    })
-  }
-  countNeutral = () => {
-    return this.setState((prev) => {
-      return { neutral: prev.neutral + 1 }
-    })
-  }
-  countBad = () => {
-    return this.setState((prev) => {
-      return { bad: prev.bad + 1 }
+
+  countFeedback = (key) => {
+    this.setState((prev) => {
+      return { [key]: prev[key] + 1 }
     })
   }
 
@@ -48,20 +33,21 @@ export class App extends Component {
     return (
       <>
         <Feadback
-          showeStatistics={this.showeStatistics}
-          countGood={this.countGood}
-          countNeutral={this.countNeutral}
-          countBad={this.countBad}
+          options={this.state}
+          onLeaveFeedback={this.countFeedback}
           reset={this.reset}
 
         />
-        {this.state.isShowStatistics && <Statistics
+        {this.countTotalFeedback() > 0 ? (<Statistics
           countGood={this.state.good}
           countNeutral={this.state.neutral}
           countBad={this.state.bad}
           countTotalFeedback={this.countTotalFeedback}
           countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
-        />}
+        />)
+          : (<Notification message="There is no feedback"></Notification>
+          )
+        }
       </>
     )
   }
